@@ -18,8 +18,7 @@ const journal = [ {
 ];
 
 
-let journalEntry = Number(prompt("Welcome to my onja journal! \n Choose(1) for listing all the entries. \n Choose (2) for addind a new entries. \n Choose (3) to quit. \n Choose (4) for deleting the last entry"));
-
+let journalEntry = Number(prompt("Welcome to my onja journal! \n Choose(1) for listing all the entries. \n Choose (2) for addind a new entries. \n Choose (3) to quit. \n Choose (4) for deleting the last entry. \n Choose (5) to delete a specific entry. (with its index)"));
 
 switch (journalEntry) {
     case 1:
@@ -44,9 +43,19 @@ content: ${journal[i].content}`;
 		alert(`We deleted the last entry : ${entryDeleted.title}`);
         break;
     case 5:
-        let indexToDelete = Number(prompt("Enter an index to delete(1 to ${journal.length}"));
-        
-}
+		let indexToDelete = Number(
+			prompt(`Enter the entry's index to delete (1 to ${journal.length})`)
+		);
+		let deletedEntry = journal.splice(indexToDelete--, 1);
+		console.log(deletedEntry);
+		alert(`You just deleted ${deletedEntry[0].title}`);
+		break;
+	default:
+		alert('Please enter a correct choice. (1,2,3,4,5)');
+	}
+
+// here, this is the end of the program. It's the last instruction.
+alert('Thank you for using my program');
 
 
 
